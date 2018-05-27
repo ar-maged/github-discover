@@ -1,5 +1,5 @@
 const doCache = false; // Set this to true for production
-const CACHE_NAME = 'github-pwa-cache';
+const CACHE_NAME = 'github-discover-cache';
 
 self.addEventListener('activate', event => {
   const cacheWhitelist = [CACHE_NAME];
