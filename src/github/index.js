@@ -15,11 +15,11 @@ const fetchMostStarredRepos = () => {
   return axios(url, { params });
 };
 
-const reduceRepo = item => ({
-  name: item.name,
-  fullName: item.full_name,
-  description: item.description,
-  language: item.language,
-  stargazersCount: item.stargazers_count,
-  url: item.html_url,
+const reduceRepo = repo => ({
+  name: repo.name,
+  fullName: repo.full_name,
+  description: repo.description,
+  language: repo.language,
+  stargazersCount: repo.stargazers_count,
+  url: repo.html_url,
 });
