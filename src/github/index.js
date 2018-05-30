@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const mostStarredOfAllTime = async () => {
+export const mostStarred = async () => {
   const response = await axios('https://api.github.com/search/repositories', {
     params: {
       q: 'stars:>10000',

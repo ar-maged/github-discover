@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { mostStarredOfAllTime } from './github';
+import { mostStarred } from './github';
 
 class App extends Component {
   state = {
-    mostStarredOfAllTime: [],
+    mostStarred: [],
   };
 
   async componentDidMount() {
     this.setState({
-      mostStarredOfAllTime: await mostStarredOfAllTime(),
+      mostStarred: await mostStarred(),
     });
   }
 
@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <div>
         <h2>GitHub Discover</h2>
-        <p>{this.state.mostStarredOfAllTime.map(this._renderRepo)}</p>
+        <p>{this.state.mostStarred.map(this._renderRepo)}</p>
       </div>
     );
   }
