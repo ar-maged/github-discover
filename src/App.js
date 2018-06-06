@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { mostStarred } from './github';
 
 class App extends Component {
+  state = {
+    mostStarred: [],
+  };
+
+  async componentDidMount() {
+    this.setState({
+      mostStarred: await mostStarred(),
+    });
+  }
+
+  _renderRepo(repo) {
+    return (
+      <div>
+        <h5>{repo.name}</h5>
+        <p>{repo.description}</p>
+      </div>
+    );
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <h2>GitHub Discover</h2>
+        <p>{this.state.mostStarred.map(this._renderRepo)}</p>
       </div>
     );
   }
